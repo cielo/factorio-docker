@@ -9,8 +9,8 @@ ARG PGID=845
 
 ENV PORT=34197 \
     RCON_PORT=27015 \
-    VERSION=0.18.42 \
-    SHA1=44639f1e66f0814d481b45e3ab24b57eaa20501d \
+    VERSION=0.18.47 \
+    SHA1=32e23b0e83c41f6328d9270667330ee71f60837e \
     SAVES=/factorio/saves \
     CONFIG=/factorio/config \
     MODS=/factorio/mods \
@@ -31,6 +31,7 @@ RUN set -ox pipefail \
     && chmod ugo=rwx /opt/factorio \
     && rm "$archive" \
     && ln -s "$SCENARIOS" /opt/factorio/scenarios \
+    && ln -s "$SAVES" /opt/factorio/saves \
     && mkdir -p /opt/factorio/config/ \
     && addgroup -g "$PGID" -S "$GROUP" \
     && adduser -u "$PUID" -G "$GROUP" -s /bin/sh -SDH "$USER" \
